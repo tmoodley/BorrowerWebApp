@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">   
+            <img src="~/images/Icon_PersonalLoans1.png" /> 
+            <h3>Welcome</h3>
+            <p>Apply for a loan at a low interest rate!</p> 
+        </div>
+        <div class="col-md-9 register-right">
+                 <h3 class="register-heading">Apply for a loan</h3>
+                <div class="row register-form">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                        </div> 
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="gender" value="male" checked>
+                                    <span> Male </span>
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="gender" value="female">
+                                    <span>Female </span>
+                                </label> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                        </div>
+                        <input type="submit" class="btnRegister" value="Register" />
+                    </div>
+                </div> 
+        </div>
+    </div>
+</div>
