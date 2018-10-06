@@ -18,15 +18,14 @@ namespace Repositories
 		}
 		//Write your code here to implement each of the methods of the IRepository interface.
 		public void Create(Borrower entity)
-		{
-			using (var context = new BorrowerDbContext())
-			{
-				using (var transaction = context.Database.BeginTransaction())
+		{ 
+				using (var transaction = _context.Database.BeginTransaction())
 				{
 					try
 					{
-						context.Borrowers.Add(entity);
-						context.SaveChanges(); 
+						entity.Created = DateTime.Now; 
+						_context.Borrowers.Add(entity);
+						_context.SaveChanges(); 
 
 						// Commit transaction if all commands succeed, transaction will auto-rollback
 						// when disposed if either commands fails
@@ -36,8 +35,7 @@ namespace Repositories
 					{
 						// TODO: Handle failure
 					}
-				}
-			}
+				} 
 		}
 
 		public void Delete(Guid id)

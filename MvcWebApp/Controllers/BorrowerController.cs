@@ -36,7 +36,7 @@ namespace BorrowerRegistrationApplication.Controllers
 
         // POST: api/Borrower
         [HttpPost]
-        public void Post([FromBody] Borrower borrower)
+        public void Post(Borrower borrower)
         {
 			_borrowerService.Create(borrower); 
 		}
