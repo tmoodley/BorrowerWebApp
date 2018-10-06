@@ -1,6 +1,8 @@
 ﻿using Data;
 using EntityFrameworkCore;
 using Interfaces;
+using Microsoft.Extensions.Logging;
+using NLog;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -11,15 +13,18 @@ namespace Repositories
 	public class BorrowerRepository : IBorrowerRepository
 	{
 		private readonly BorrowerDbContext _context;
+		private readonly ILoggerFactory _loggerFactory;
 
-		public BorrowerRepository(BorrowerDbContext context)
+		public BorrowerRepository(ILoggerFactory loggerFactory, BorrowerDbContext context)
 		{
-			_context = context;
+			_loggerFactory = loggerFactory;
+			_context = context; 
 		}
+		 
 		//Write your code here to implement each of the methods of the IRepository interface.
 		public void Create(Borrower entity)
 		{ 
-				using (var transaction = _context.Database.BeginTransaction())
+			using (var transaction = _context.Database.BeginTransaction())
 				{
 					try
 					{
@@ -31,9 +36,10 @@ namespace Repositories
 						// when disposed if either commands fails
 						transaction.Commit();
 					}
-					catch (Exception)
+					catch (Exception e)
 					{
-						// TODO: Handle failure
+						var logger = _loggerFactory.CreateLogger("BorrowerRepository Create()");
+						logger.LogInformation(e.Message);
 					}
 				} 
 		}
@@ -54,9 +60,10 @@ namespace Repositories
 						// when disposed if either commands fails
 						transaction.Commit();
 					}
-					catch (Exception)
+					catch (Exception e)
 					{
-						// TODO: Handle failure
+						var logger = _loggerFactory.CreateLogger("BorrowerRepository Delete()");
+						logger.LogInformation(e.Message);
 					}
 				}
 			}
@@ -90,9 +97,10 @@ namespace Repositories
 						// when disposed if either commands fails
 						transaction.Commit();
 					}
-					catch (Exception)
+					catch (Exception e)
 					{
-						// TODO: Handle failure
+						var logger = _loggerFactory.CreateLogger("BorrowerRepository Update()");
+						logger.LogInformation(e.Message);
 					}
 				}
 			}

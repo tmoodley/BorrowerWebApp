@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using InterviewWebApp.Models;
 using Data;
 using Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace InterviewWebApp.Controllers
 {
@@ -10,10 +11,14 @@ namespace InterviewWebApp.Controllers
 	{
 		private readonly IBorrowerService _borrowerService;
 
-		public HomeController(IBorrowerService borrowerService)
+		private readonly ILogger<HomeController> _logger;
+
+		public HomeController(ILogger<HomeController> logger, IBorrowerService borrowerService)
 		{
+			_logger = logger;
 			_borrowerService = borrowerService;
 		}
+
 
 		[HttpGet]
 		public IActionResult Index()

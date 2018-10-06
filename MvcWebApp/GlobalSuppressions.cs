@@ -9,4 +9,5 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CC0038:You should use expression bodied members whenever possible.", Justification = "<Pending>", Scope = "member", Target = "~M:InterviewWebApp.Controllers.HomeController.Index~Microsoft.AspNetCore.Mvc.IActionResult")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CC0038:You should use expression bodied members whenever possible.", Justification = "<Pending>", Scope = "member", Target = "~M:InterviewWebApp.Controllers.HomeController.Privacy~Microsoft.AspNetCore.Mvc.IActionResult")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CC0038:You should use expression bodied members whenever possible.", Justification = "<Pending>", Scope = "member", Target = "~M:InterviewWebApp.Controllers.HomeController.Error~Microsoft.AspNetCore.Mvc.IActionResult")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CC0038:You should use expression bodied members whenever possible.", Justification = "<Pending>", Scope = "member", Target = "~M:InterviewWebApp.Program.CreateWebHostBuilder(System.String[])~Microsoft.AspNetCore.Hosting.IWebHostBuilder")]
 
