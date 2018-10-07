@@ -6,11 +6,13 @@ Requirements:
 1.  Git
 2.  DotNet Core (latest version 2.1)
 
-git clone https://github.com/tmoodley/BorrowerWebApp.git
-cd BorrowerWebApp
-dotnet build
-cd MvcWebApp
-dotnet run
+Instructions:
+
+1.  git clone https://github.com/tmoodley/BorrowerWebApp.git
+2.  cd BorrowerWebApp
+3.  dotnet build
+4.  cd MvcWebApp
+5.  dotnet run
 
 You can also use Visual Studio if you want to but it is not necessary.  The project does not connect to Sql Server.  It is using an in-memory database.
 
