@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="~/images/document-edit-outline.png" />
+            <h3>EDIT</h3>
+        </div>
+        <div class="col-md-9 register-right">
+            <h3 class="register-heading">Edit Borrower Information</h3>
+            <div class="row register-form">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="FirstName" placeholder="First Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="LastName" placeholder="Last Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <label class="checkbox-inline">
+                                <input type="radio" name="Gender" value="male" checked>
+                                <span> Male </span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="Gender" value="female">
+                                <span>Female </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="Login" placeholder="Your Email *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="Password" placeholder="Password *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="PasswordConfirm" placeholder="Confirm Password *" value="" />
+                    </div>
+                    <input type="hidden" class="form-control" name="Id" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="registerUser()">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<script src="~/js/BorrowersEdit/editBorrower.js"></script>

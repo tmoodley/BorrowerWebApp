@@ -47,26 +47,24 @@ namespace Repositories
 		public void Delete(Guid id)
 		{
 			var borrower = GetById(id);
-			using (var context = new BorrowerDbContext())
+		 
+			using (var transaction = _context.Database.BeginTransaction())
 			{
-				using (var transaction = context.Database.BeginTransaction())
+				try
 				{
-					try
-					{
-						context.Borrowers.Remove(borrower);
-						context.SaveChanges();
+					_context.Borrowers.Remove(borrower);
+					_context.SaveChanges();
 
-						// Commit transaction if all commands succeed, transaction will auto-rollback
-						// when disposed if either commands fails
-						transaction.Commit();
-					}
-					catch (Exception e)
-					{
-						var logger = _loggerFactory.CreateLogger("BorrowerRepository Delete()");
-						logger.LogInformation(e.Message);
-					}
+					// Commit transaction if all commands succeed, transaction will auto-rollback
+					// when disposed if either commands fails
+					transaction.Commit();
 				}
-			}
+				catch (Exception e)
+				{
+					var logger = _loggerFactory.CreateLogger("BorrowerRepository Delete()");
+					logger.LogInformation(e.Message);
+				}
+			} 
 		}
 
 		public List<Borrower> GetAll()
@@ -75,23 +73,19 @@ namespace Repositories
 		}
 
 		public Borrower GetById(Guid id)
-		{
-			using (var context = new BorrowerDbContext())
-			{
-				return context.Borrowers.Find(id);
-			}
+		{ 
+			return _context.Borrowers.Where(x => x.Id == id).FirstOrDefault(); 
 		}
 
 		public void Update(Borrower entity)
 		{
-			using (var context = new BorrowerDbContext())
-			{
-				using (var transaction = context.Database.BeginTransaction())
+			 
+			 using (var transaction = _context.Database.BeginTransaction())
 				{
 					try
 					{
-						context.Borrowers.Update(entity);
-						context.SaveChanges();
+						_context.Borrowers.Update(entity); 
+						_context.SaveChanges();
 
 						// Commit transaction if all commands succeed, transaction will auto-rollback
 						// when disposed if either commands fails
@@ -103,7 +97,7 @@ namespace Repositories
 						logger.LogInformation(e.Message);
 					}
 				}
-			}
+			 
 		}
 	}
 }

@@ -30,21 +30,45 @@ namespace BorrowerRegistrationApplication.Controllers
 		}
 
 		[HttpPost]
-        public void Post(Borrower borrower)
+        public bool Post(Borrower borrower)
         {
-			_borrowerService.Create(borrower);
+			try
+			{
+				_borrowerService.Create(borrower);
+				return true;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
 
         [HttpPut]
-        public void Put([FromBody] Borrower borrower)
+        public bool Put([FromBody] Borrower borrower)
         {
-			_borrowerService.Update(borrower);
+			try
+			{
+				_borrowerService.Update(borrower);
+				return true;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
 
         [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        public bool Delete(Guid id)
 		{
-			_borrowerService.Delete(id);
+			try
+			{
+				_borrowerService.Delete(id);
+				return true;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
     }
 }

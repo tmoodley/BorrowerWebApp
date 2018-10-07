@@ -19,11 +19,16 @@ namespace InterviewWebApp.Controllers
 			_borrowerService = borrowerService;
 		}
 
-
 		[HttpGet]
 		public IActionResult Index()
 		{
 			return View();
+		}
+
+		[HttpGet]
+		public IActionResult Register()
+		{
+			return PartialView();
 		}
 
 		[HttpPost]

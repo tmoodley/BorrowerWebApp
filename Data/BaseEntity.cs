@@ -6,7 +6,7 @@ namespace Data
 { 
 	public abstract class EntityBase
 	{
-		public Guid Id { get; protected set; }
+		public Guid Id { get; set; }
 		public DateTime Created { get; set; }
 	}
 }
