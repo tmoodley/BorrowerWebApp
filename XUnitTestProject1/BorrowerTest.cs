@@ -1,9 +1,5 @@
-using BorrowerRegistrationApplication.Controllers;
 using Data;
-using EntityFrameworkCore;
 using Interfaces; 
-using Microsoft.AspNetCore.Mvc; 
-using Microsoft.Extensions.Logging; 
 using Moq; 
 using Services; 
 using Xunit;
