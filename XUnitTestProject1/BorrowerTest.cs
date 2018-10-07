@@ -1,4 +1,5 @@
-using BorrowerRegistrationApplication.Controllers; 
+using BorrowerRegistrationApplication.Controllers;
+using Data;
 using EntityFrameworkCore;
 using Interfaces; 
 using Microsoft.AspNetCore.Mvc; 
@@ -16,7 +17,7 @@ namespace XUnitTestProject1
 		}
 		   
 		[Fact]
-		public void TestGetBookById()
+		public void TestGetBorrowers()
 		{
 			//Arrange
 		    var mockRepo = new Mock<IBorrowerRepository>();
@@ -27,6 +28,20 @@ namespace XUnitTestProject1
 			//// Assert 
 			Assert.Null(result);
 		}
-		 
+
+		[Fact]
+		public void TestGetRandomBorrower()
+		{
+			//Arrange
+			var mockObj = new Mock<Borrower>();
+			var mockRepo = new Mock<IBorrowerRepository>();
+			var mockService = new Mock<IBorrowerService>();
+
+			// Act
+			var result = mockService.Object.GetById(new System.Guid());
+
+			//// Assert 
+			Assert.Null(result);
+		}
 	}
 }
