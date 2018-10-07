@@ -15,9 +15,36 @@ namespace Services
 		}
 		//public ILogger Logger { get; set; }
 
-		public void Create(Borrower input)
+		public bool Create(Borrower input)
 		{
-			_borrowerRepository.Create(input);
+			// Check validation
+			if (input.FirstName == "")
+			{
+				throw new ArgumentNullException("First Name needs a value");
+			}
+			else if (input.LastName == "")
+			{
+				throw new ArgumentNullException("Last Name needs a value");
+			}
+			else if (!Helper.EmailIsValid(input.Login))
+			{
+				throw new ArgumentOutOfRangeException("Email not valid");
+			} 
+			else if (input.Password == "")
+			{
+				throw new ArgumentNullException("Password needs a value");
+			}
+
+			try
+			{
+				_borrowerRepository.Create(input);
+				return true;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+
 		}
 
 		public void Delete(Guid id)

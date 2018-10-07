@@ -9,7 +9,7 @@ namespace Interfaces
 	public interface IBorrowerService
 	{
 		IEnumerable<Borrower> ListAll();
-		void Create(Borrower input);
+		bool Create(Borrower input);
 		void Update(Borrower input);
 		void Delete(Guid id);
 		Borrower GetById(Guid id); 

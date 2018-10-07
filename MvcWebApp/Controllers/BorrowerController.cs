@@ -30,30 +30,32 @@ namespace BorrowerRegistrationApplication.Controllers
 		}
 
 		[HttpPost]
-        public bool Post(Borrower borrower)
+        public string Post(Borrower borrower)
         {
 			try
 			{
 				_borrowerService.Create(borrower);
-				return true;
+				return "true";
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
-				return false;
+				var json = Newtonsoft.Json.JsonConvert.SerializeObject(e.Message);
+				return json;
 			}
 		}
 
         [HttpPut]
-        public bool Put([FromBody] Borrower borrower)
+        public string Put([FromBody] Borrower borrower)
         {
 			try
 			{
 				_borrowerService.Update(borrower);
-				return true;
+				return "true";
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
-				return false;
+				var json = Newtonsoft.Json.JsonConvert.SerializeObject(e.Message);
+				return json;
 			}
 		}
 

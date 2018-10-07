@@ -39,5 +39,90 @@ namespace XUnitTestProject1
 			//// Assert 
 			Assert.Null(result);
 		}
+
+		[Fact]
+		public void TestBlankEmailBorrower()
+		{
+			//Arrange
+			var mockObj = new Mock<Borrower>();
+			mockObj.Object.FirstName = "Test";
+			mockObj.Object.LastName = "Mo";
+			mockObj.Object.Gender = "Male";
+			mockObj.Object.Password = "23423";
+			mockObj.Object.Login = "";
+
+			var mockRepo = new Mock<IBorrowerRepository>();
+			var mockService = new Mock<IBorrowerService>();
+
+			// Act
+			var result = mockService.Object.Create(mockObj.Object);
+
+			//// Assert 
+			Assert.False(result);
+		}
+
+		[Fact]
+		public void TestBlankFirstNameBorrower()
+		{
+			//Arrange
+			var mockObj = new Mock<Borrower>();
+			mockObj.Object.FirstName = "";
+			mockObj.Object.LastName = "Mo";
+			mockObj.Object.Gender = "Male";
+			mockObj.Object.Password = "23423";
+			mockObj.Object.Login = "ty.mo@gmail.com";
+
+			var mockRepo = new Mock<IBorrowerRepository>();
+			var mockService = new Mock<IBorrowerService>();
+
+			// Act
+			var result = mockService.Object.Create(mockObj.Object);
+
+			//// Assert 
+			Assert.False(result);
+		}
+
+		[Fact]
+		public void TestBlankLastNameBorrower()
+		{
+			//Arrange
+			var mockObj = new Mock<Borrower>();
+			mockObj.Object.FirstName = "Test";
+			mockObj.Object.LastName = "";
+			mockObj.Object.Gender = "Male";
+			mockObj.Object.Password = "23423";
+			mockObj.Object.Login = "ty.mo@gmail.com";
+
+			var mockRepo = new Mock<IBorrowerRepository>();
+			var mockService = new Mock<IBorrowerService>();
+
+			// Act
+			var result = mockService.Object.Create(mockObj.Object);
+
+			//// Assert 
+			Assert.False(result);
+		}
+
+		[Fact]
+		public void TestPasswordEmptyBorrower()
+		{
+			//Arrange
+			var mockObj = new Mock<Borrower>();
+			mockObj.Object.FirstName = "Test";
+			mockObj.Object.LastName = "Mo";
+			mockObj.Object.Gender = "Male";
+			mockObj.Object.Password = "";
+			mockObj.Object.Login = "ty.mo@gmail.com";
+
+			var mockRepo = new Mock<IBorrowerRepository>();
+			var mockService = new Mock<IBorrowerService>();
+
+			// Act
+			var result = mockService.Object.Create(mockObj.Object);
+
+			//// Assert 
+			Assert.False(result);
+		}
+		 
 	}
 }

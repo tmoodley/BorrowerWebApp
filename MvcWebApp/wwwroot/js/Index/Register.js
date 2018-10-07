@@ -14,8 +14,13 @@
         data: JSON.stringify(customer),
         contentType: "application/json",
         success: function (data, textStatus, xhr) {
-            $('#myModal').modal('hide');
-            refreshGrid();
+            if (data === true) {
+                $('#myModal').modal('hide');
+                refreshGrid();
+            }
+            else {
+                alert(data);
+            } 
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log('Error in Operation');
