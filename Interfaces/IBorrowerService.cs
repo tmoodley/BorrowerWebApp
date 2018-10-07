@@ -10,9 +10,10 @@ namespace Interfaces
 	{
 		IEnumerable<Borrower> ListAll();
 		bool Create(Borrower input);
-		void Update(Borrower input);
+		bool Update(Borrower input);
 		void Delete(Guid id);
 		Borrower GetById(Guid id); 
-		List<Borrower> GetAll(); 
+		List<Borrower> GetAll();
+		bool CheckEmail(string email);
 	}
 }

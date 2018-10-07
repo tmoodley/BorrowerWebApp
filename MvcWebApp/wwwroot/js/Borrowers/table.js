@@ -78,11 +78,10 @@ function EditData(CustomerID) {
         type: 'Get',
         success: function (result) { 
             if (result) {
-                debugger;
                 $('[name=FirstName]').val(result.firstName);
                 $('[name=LastName]').val(result.lastName);
                 $('[name=Login]').val(result.login); 
-                $('[name=Gender]').val(result.gender);
+                $("input[name='Gender'][value='" + result.gender + "']").prop('checked', true); 
                 $('[name=Id]').val(result.id);
             }
             else {

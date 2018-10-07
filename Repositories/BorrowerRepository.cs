@@ -79,7 +79,6 @@ namespace Repositories
 
 		public void Update(Borrower entity)
 		{
-			 
 			 using (var transaction = _context.Database.BeginTransaction())
 				{
 					try
@@ -98,6 +97,12 @@ namespace Repositories
 					}
 				}
 			 
+		}
+
+
+		public bool CheckEmail(string Email)
+		{
+			return _context.Borrowers.Any(x => x.Login == Email);
 		}
 	}
 }

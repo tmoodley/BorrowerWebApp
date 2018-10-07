@@ -5,7 +5,7 @@
         LastName: $('[name=LastName]').val(),
         Login: $('[name=Login]').val(),
         Password: $('[name=Password]').val(),
-        Gender: $('[name=Gender]').val()
+        Gender: $("input[name='Gender']:checked").val()
     }; 
     $.ajax({
         url: '/api/borrower',

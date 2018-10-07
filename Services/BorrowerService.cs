@@ -29,7 +29,11 @@ namespace Services
 			else if (!Helper.EmailIsValid(input.Login))
 			{
 				throw new ArgumentOutOfRangeException("Email not valid");
-			} 
+			}
+			else if (CheckEmail(input.Login))
+			{
+				throw new ArgumentOutOfRangeException("Email already exists!  Pick Unique Email.");
+			}
 			else if (input.Password == "")
 			{
 				throw new ArgumentNullException("Password needs a value");
@@ -67,9 +71,41 @@ namespace Services
 			return _borrowerRepository.GetAll();
 		}
 
-		public void Update(Borrower input)
+		public bool Update(Borrower input)
 		{
-			_borrowerRepository.Update(input);
+			// Check validation
+			if (input.FirstName == "")
+			{
+				throw new ArgumentNullException("First Name needs a value");
+			}
+			else if (input.LastName == "")
+			{
+				throw new ArgumentNullException("Last Name needs a value");
+			}
+			else if (!Helper.EmailIsValid(input.Login))
+			{
+				throw new ArgumentOutOfRangeException("Email not valid");
+			}
+			else if (input.Password == "")
+			{
+				throw new ArgumentNullException("Password needs a value");
+			}
+
+			try
+			{
+				_borrowerRepository.Update(input);
+				return true;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+		}
+
+
+		public bool CheckEmail(string email)
+		{
+			return _borrowerRepository.CheckEmail(email);
 		}
 	}
 }

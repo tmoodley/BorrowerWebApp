@@ -16,5 +16,7 @@ namespace Services
 		void Update(Borrower entity);
 
 		List<Borrower> GetAll();
+		 
+		bool CheckEmail(string Email);
 	}
 }
