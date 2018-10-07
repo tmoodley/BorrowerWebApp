@@ -17,15 +17,8 @@
     <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\EntityFrameworkCore\EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
-    <ProjectReference Include="..\MvcWebApp\BorrowerRegistrationApplication.csproj" />
     <ProjectReference Include="..\Repositories\Repositories.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.AspNetCore.Mvc.ViewFeatures">
-      <HintPath>..\..\..\..\Documents\guardforce\3.3.2\aspnet-core\src\SouthernsoftTech.GuardForce.Core\bin\Release\netcoreapp2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
