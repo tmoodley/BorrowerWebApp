@@ -7,8 +7,9 @@ namespace EntityFrameworkCore
 	{
 		/* Define an IDbSet for each entity of the application */
 		public DbSet<Borrower> Borrowers { get; set; }
+    
 
-		public BorrowerDbContext(DbContextOptions<BorrowerDbContext> options)
+        public BorrowerDbContext(DbContextOptions<BorrowerDbContext> options)
 			: base(options)
 		{
 

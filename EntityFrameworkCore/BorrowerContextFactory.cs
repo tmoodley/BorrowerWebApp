@@ -4,11 +4,11 @@ using Microsoft.Extensions.Configuration;
 
 namespace EntityFrameworkCore
 {  
-	public class BorrowerContextFactory : IDesignTimeDbContextFactory<BorrowerDbContext>
+	public class CapitalMarketsContextFactory : IDesignTimeDbContextFactory<BorrowerDbContext>
 	{
 		public BorrowerDbContext CreateDbContext(string[] args)
 		{
-			var connection = @"Server=(localdb)\mssqllocaldb;Database=BorrowersDB;Trusted_Connection=True;ConnectRetryCount=0";
+			var connection = @"Server=QAMSCMHDB1;Database=CapitalMarketsRMBS;Integrated Security=True;";
 			var optionsBuilder = new DbContextOptionsBuilder<BorrowerDbContext>();
 			optionsBuilder.UseSqlServer(connection);
 			return new BorrowerDbContext(optionsBuilder.Options);
